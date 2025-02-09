@@ -13,16 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("solveRoom2").addEventListener("click", () => {
+      document.getElementById("solveRoom2").addEventListener("click", async () => {
         const jsConcepts = new Set(['closure', 'scope', 'hoisting']);
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
         const commonConcepts = findIntersection(jsConcepts, jsConcepts);
+        const commonConcepts = findIntersection(jsConcepts, reactConcepts);
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
     // 🪲 Bug: Asynchronous function ?
     document.getElementById("solveRoom3").addEventListener("click", () => {
+      document.getElementById("solveRoom3").addEventListener("click", async () => {    
         fetch('directions.json') 
             .then(response => response.json())
             .then(directions => {
